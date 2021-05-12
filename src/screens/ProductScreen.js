@@ -1,13 +1,12 @@
 import "./ProductScreen.css";
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import axios from "axios";
 
 // Actions
 import { getProductDetails } from "../redux/actions/productActions";
 import { addToCart } from "../redux/actions/cartActions";
 
-const ProductScreen = ({ match, history }) => {
+const ProductScreen = ({ match }) => {
   const [qty, setQty] = useState(1);
   const dispatch = useDispatch();
   
@@ -53,8 +52,8 @@ const ProductScreen = ({ match, history }) => {
               <p>
                 Status:
                 <span>
-                  {//product.countInStock > 0 ? "In Stock" : "Out of Stock"
-                  1 > 0 ? "In Stock" : "Out of Stock"
+                  {
+                    true ? "In Stock" : "Out of Stock"
                   }
                 </span>
               </p>

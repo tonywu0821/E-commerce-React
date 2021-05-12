@@ -14,7 +14,6 @@ Technologies involved:
 * Heroku
 * Axios
 
-
 ## Functional Features
 * Display a list of available products
 * The title, price, category, description and image of a product should be displayed
@@ -27,10 +26,9 @@ somehow
 displayed
 * The user’s profile can be updated
 * Search bar to find a product
-
+* Sort by price feature
 
 ## TODO
-* Sort by price feature
 * Pagination
 
 ## Assumptions

@@ -1,6 +1,6 @@
 import "./HomeScreen.css";
 import { useState,useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector, useStore } from "react-redux";
 
 // Components
 import Product from "../components/Product";
@@ -16,6 +16,7 @@ const HomeScreen = () => {
     category: "",
     searchTerm: ""
   });
+  const [sortConfig, setSortConfig] = useState('');
   const getProducts = useSelector((state) => state.getProducts);
   const { products, loading, error } = getProducts;
   
@@ -27,32 +28,39 @@ const HomeScreen = () => {
     getCategories();
   }, [])
 
-  useEffect(() => {
-    console.log(filters);
-  },[filters])
-
   const getCategories = async () => {
     try {
       const {data} = await axios.get('https://fakestoreapi.com/products/categories');
-      console.log("getCategories")
-      console.log(data);
+      //console.log("getCategories")
+      //console.log(data);
       setCategories(data);
     } catch(error) {
       console.error(error.response);
     }
   }
 
-  function filiterProducts(filters){
-    console.log("filiterProducts");
-    console.log(filters);
+  function filiterProducts(filters,sortConfig){
+    //console.log("filiterProducts");
+    //console.log(filters);
     let filiteredProducts = [...products];
     for (let key in filters) {
-      console.log(key);
+      //console.log(key);
       if(key === 'category' && filters[key].length > 0){
         filiteredProducts = filiteredProducts.filter((product)=> product.category === filters[key])
       } else if(key === 'searchTerm' && filters[key].length > 0){
         filiteredProducts = filiteredProducts.filter((product)=> product.title.includes(filters[key]))
       }
+    }
+    if (sortConfig && sortConfig.length > 0) {
+      filiteredProducts.sort((a,b) => {
+        if (a.price < b.price) {
+          return sortConfig === "ascending" ? -1 : 1;
+        }
+        if (a.price > b.price) {
+          return sortConfig === "ascending" ? 1 : -1;
+        }
+        return 0;
+      })
     }
     return filiteredProducts.map((product) => (
       <Product
@@ -81,7 +89,19 @@ const HomeScreen = () => {
               ))}
           </select>
       </div>
-        
+      <div className="homescreen__price">
+        <select value={sortConfig} onChange={(e)=>setSortConfig(e.target.value)}>
+          <option key="Sorted by Price" value = "">
+            {"Sorted by Price"}
+          </option>
+          <option key="ascending" value = "ascending">
+            {"Price: Low to High"}
+          </option>
+          <option key="descending" value = "descending">
+            {"Price: High to Low"}
+          </option>
+        </select>
+      </div>
       <div className="homescreen__search">
         <input value = {filters.searchTerm} onChange = {e => setFilter({...filters,searchTerm:e.target.value})}type="text" placeholder="Search.."/>
       </div>
@@ -91,7 +111,7 @@ const HomeScreen = () => {
         ) : error ? (
           <h2>{error}</h2>
         ) : (
-          filiterProducts(filters)    
+          filiterProducts(filters, sortConfig)    
         )}
       </div>
     </div>

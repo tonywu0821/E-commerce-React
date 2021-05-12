@@ -20,7 +20,7 @@
   padding-left: 10px;
   box-sizing: border-box;
   float: left;
-  width:60%;
+  width:40%;
 }
 .homescreen__category > span{
   padding: auto;
@@ -36,13 +36,28 @@
 
 .homescreen__search{
   box-sizing: border-box;
-  background-color: rgb(219, 142, 142);
+  background-color: rgb(255, 255, 255);
   float: left;
   width:30%;
 }
 .homescreen__search > input{
-  
-  width:100%;
+  width:60%;
+  float: right;
+}
+
+.homescreen__price{
+  margin-right: 10px;
+  box-sizing: border-box;
+  float: left;
+  height: 100%;
+  width:20%
+}
+
+.homescreen__price > select{
+  box-sizing: border-box;
+  float: left;
+  height: 100%;
+  width: 100%;
 }
 
 @media (max-width: 1232px) {

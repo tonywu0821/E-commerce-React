@@ -1,21 +1,15 @@
 import React from 'react'
 import "./UserScreen.css";
-import { useEffect } from "react";
 import {  useSelector } from "react-redux";
 import { Link } from 'react-router-dom';
 
 
 const UserScreen = () => {
   const userDetail = useSelector((state) => state.getUser);
-  const { user, loading } = userDetail;
+  const { user } = userDetail;
   
-  useEffect(() => {
-    console.log("UserScreen useEffect!");
-  },[loading]);
-
   return (
     <> 
-      {console.log("userscreen")}
       <div className="userscreen">
         <h2>User profile</h2>
         {userDetail.loading !== false ? (

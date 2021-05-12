@@ -47,7 +47,6 @@ const EditUserScreen = ({history}) => {
   
   return (
     <>
-    {console.log("editscreen!")}
     <div className="editscreen">
       <div>
       <h2>Edit Profile</h2>
