@@ -4,10 +4,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from 'react-router-dom';
 import "./EditUserScreen.css";
 // Actions
-import { getUser, updateUserProfile } from "../redux/actions/userActions";
+import { updateUserProfile } from "../redux/actions/userActions";
 
-
-const EditUserScreen = () => {
+const EditUserScreen = ({history}) => {
   const dispatch = useDispatch();
   const userDetail = useSelector((state) => state.getUser);
   const { user, loading } = userDetail;
@@ -43,9 +42,9 @@ const EditUserScreen = () => {
       address:{street,number,city,zipcode}
     }
     dispatch(updateUserProfile(updatedData))
+    history.push("/user")
   }
   
-
   return (
     <>
     {console.log("editscreen!")}

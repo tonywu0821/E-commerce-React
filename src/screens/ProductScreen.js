@@ -10,32 +10,14 @@ import { addToCart } from "../redux/actions/cartActions";
 const ProductScreen = ({ match, history }) => {
   const [qty, setQty] = useState(1);
   const dispatch = useDispatch();
-  //const [product, setProduct] = useState({}) ;
-  //const [loading, setLoading] = useState(true);
-  //const [error, setError] = useState("");
   
   const productDetails = useSelector((state) => state.getProductDetails);
   const { loading, error, product } = productDetails;
 
-  // async function getProductDetails(){
-  //   const { data } = await axios.get(`https://fakestoreapi.com/products/${match.params.id}`);
-  //   setProduct(data);
-  //   setLoading(false);
-  //   setError("");
-  // }
   useEffect(() => {
-    //getProductDetails()
-    // console.log("product:"+product.id);
-    // console.log("match:"+match);
-    // console.log("history:"+history);
-    // console.log("getProductDetails");
     if (product && match.params.id !== product.id) {
      dispatch(getProductDetails(match.params.id));
     }
-    // console.log("product:"+product.id);
-    // console.log("match:"+match);
-    // console.log("history:"+history);
-    // console.log("getProductDetails");
   }, []);
 
   const addToCartHandler = () => {

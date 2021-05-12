@@ -13,6 +13,36 @@
 .homescreen__products {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  float: left;
+}
+
+.homescreen__category{
+  padding-left: 10px;
+  box-sizing: border-box;
+  float: left;
+  width:60%;
+}
+.homescreen__category > span{
+  padding: auto;
+  box-sizing: border-box;
+  float: left;
+  height: 100%;
+}
+.homescreen__category > select{
+  box-sizing: border-box;
+  float: left;
+  height: 100%;
+}
+
+.homescreen__search{
+  box-sizing: border-box;
+  background-color: rgb(219, 142, 142);
+  float: left;
+  width:30%;
+}
+.homescreen__search > input{
+  
+  width:100%;
 }
 
 @media (max-width: 1232px) {
