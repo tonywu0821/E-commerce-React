@@ -36,7 +36,6 @@
 
 .homescreen__search{
   box-sizing: border-box;
-  background-color: rgb(255, 255, 255);
   float: left;
   width:30%;
 }

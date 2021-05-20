@@ -91,8 +91,8 @@ const HomeScreen = () => {
       </div>
       <div className="homescreen__price">
         <select value={sortConfig} onChange={(e)=>setSortConfig(e.target.value)}>
-          <option key="Sorted by Price" value = "">
-            {"Sorted by Price"}
+          <option key="Sort by:" value = "">
+            {"Sort by Price"}
           </option>
           <option key="ascending" value = "ascending">
             {"Price: Low to High"}

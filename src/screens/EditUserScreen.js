@@ -46,115 +46,112 @@ const EditUserScreen = ({history}) => {
   }
   
   return (
-    <>
     <div className="editscreen">
       <div>
-      <h2>Edit Profile</h2>
-      {loading !== false ? (
-        <h2>Loading...</h2>
-      ) : (
-        <div className="editscreen__form">
-          <form onSubmit={(e) => onSubmitForm(e)}>
-            <div class="form-row">
-              <div className="form-group col-md-6"> 
-                <label>First Name </label>
-                <input  type="text"
-                    required
-                    className="form-control"
-                    value={firstName}
-                    onChange={(e)=> setFirstName(e.target.value)}
-                    />      
-              </div>
-              <div className="form-group col-md-6"> 
-                <label>Last Name </label>
-                <input  type="text"
-                    required
-                    className="form-control"
-                    value={lastName}
-                    onChange={(e)=> setlastName(e.target.value)}
-                    />      
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div className="form-group col-md-6"> 
-                <label>Email </label>
-                <input  type="text"
-                    required
-                    className="form-control"
-                    value={email}
-                    onChange={(e)=> setEmail(e.target.value)}
-                    />      
-              </div>
-              <div className="form-group col-md-6"> 
-                <label>Password </label>
-                <input type="text"
-                    required
-                    className="form-control"
-                    value={password}
-                    onChange={(e)=> setPassword(e.target.value)}
-                    />
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div className="form-group col-md-2"> 
-                <label>Street Number </label>
-                <input  type="text"
-                    required
-                    className="form-control"
-                    value={number}
-                    onChange={(e)=> setNumber(e.target.value)}
-                    />      
-              </div>
-              <div className="form-group col-md-4"> 
-                <label>Street </label>
-                <input  type="text"
-                    required
-                    className="form-control"
-                    value={street}
-                    onChange={(e)=> setStreet(e.target.value)}
-                    />
-              </div>
-              <div className="form-group col-md-3"> 
-                <label>City </label>
-                <input  type="text"
-                    required
-                    className="form-control"
-                    value={city}
-                    onChange={(e)=> setCity(e.target.value)}
-                    />
-              </div>
-              <div className="form-group col-md-3"> 
-                <label>Zip Code </label>
-                <input  type="text"
-                    required
-                    className="form-control"
-                    value={zipcode}
-                    onChange={(e)=> setZipcode(e.target.value)}
-                    />
-              </div>
-            </div>
-
-            <div className="form-group">
-              <div className="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-                <div className="input-group mr-2">
-                  <input type="submit" value="Submit" className="btn btn-primary" /> 
+        <h2>Edit Profile</h2>
+        {loading !== false ? (
+          <h2>Loading...</h2>
+        ) : (
+          <div className="editscreen__form">
+            <form onSubmit={(e) => onSubmitForm(e)}>
+              <div class="form-row">
+                <div className="form-group col-md-6"> 
+                  <label>First Name </label>
+                  <input  type="text"
+                      required
+                      className="form-control"
+                      value={firstName}
+                      onChange={(e)=> setFirstName(e.target.value)}
+                      />      
                 </div>
-                <div className="btn-group" role="group">
-                  <Link to="/user">
-                    <input type="button" value="Cancel" className="btn btn-danger" />
-                  </Link>
+                <div className="form-group col-md-6"> 
+                  <label>Last Name </label>
+                  <input  type="text"
+                      required
+                      className="form-control"
+                      value={lastName}
+                      onChange={(e)=> setlastName(e.target.value)}
+                      />      
                 </div>
               </div>
-            </div>
-          </form>
-        </div>
-      )}
-      
+
+              <div class="form-row">
+                <div className="form-group col-md-6"> 
+                  <label>Email </label>
+                  <input  type="text"
+                      required
+                      className="form-control"
+                      value={email}
+                      onChange={(e)=> setEmail(e.target.value)}
+                      />      
+                </div>
+                <div className="form-group col-md-6"> 
+                  <label>Password </label>
+                  <input type="text"
+                      required
+                      className="form-control"
+                      value={password}
+                      onChange={(e)=> setPassword(e.target.value)}
+                      />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div className="form-group col-md-2"> 
+                  <label>Street Number </label>
+                  <input  type="text"
+                      required
+                      className="form-control"
+                      value={number}
+                      onChange={(e)=> setNumber(e.target.value)}
+                      />      
+                </div>
+                <div className="form-group col-md-4"> 
+                  <label>Street </label>
+                  <input  type="text"
+                      required
+                      className="form-control"
+                      value={street}
+                      onChange={(e)=> setStreet(e.target.value)}
+                      />
+                </div>
+                <div className="form-group col-md-3"> 
+                  <label>City </label>
+                  <input  type="text"
+                      required
+                      className="form-control"
+                      value={city}
+                      onChange={(e)=> setCity(e.target.value)}
+                      />
+                </div>
+                <div className="form-group col-md-3"> 
+                  <label>Zip Code </label>
+                  <input  type="text"
+                      required
+                      className="form-control"
+                      value={zipcode}
+                      onChange={(e)=> setZipcode(e.target.value)}
+                      />
+                </div>
+              </div>
+
+              <div className="form-group">
+                <div className="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                  <div className="input-group mr-2">
+                    <input type="submit" value="Submit" className="btn btn-primary" /> 
+                  </div>
+                  <div className="btn-group" role="group">
+                    <Link to="/user">
+                      <input type="button" value="Cancel" className="btn btn-danger" />
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        )}
+      </div>
     </div>
-    </div>
-    </>
   )
 }
 
