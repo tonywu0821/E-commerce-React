@@ -80,7 +80,7 @@ const HomeScreen = () => {
     <div className="homescreen">
       <h2 className="homescreen__title">Product Gallary</h2>
       <div className="homescreen__category">
-        <span>Filter by categories:</span> 
+        <span>Filter by category:</span> 
           <select value={filters.category} onChange={(e) => setFilter({...filters,category:e.target.value})}>
               {['',...categories].map((x) => (
                 <option key={x} value={x}>
