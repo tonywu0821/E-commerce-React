@@ -1,7 +1,8 @@
 # E-commerce-website 
 A React app that mimics a fake ecommerce site. It uses [Fake-store API](https://fakestoreapi.com/) as Backend and React.js as Frontend.
+(This app is created by npx create-react-app command)
 
-You can clone this repository and then use "npm -m install" and "npm start" to run this app locally. 
+You can clone this repository and then use "npm install" and "npm start" to run this app locally. 
 
 [Try it on heroku!](https://react-app-shopping-cart.herokuapp.com/)
 ## Technologies
