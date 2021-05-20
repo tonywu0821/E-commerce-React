@@ -9,7 +9,7 @@ const UserScreen = () => {
   const { user } = userDetail;
   
   return (
-    <> 
+    
       <div className="userscreen">
         <h2>User profile</h2>
         {userDetail.loading !== false ? (
@@ -28,13 +28,15 @@ const UserScreen = () => {
             <input className =""value={user.address.number + " " + user.address.street} disabled/><br/>
             <label>Zip Code:</label>
             <input className =""value={user.address.zipcode} disabled/><br/>
-            <Link className ="userscreen__edit" to={"/user/edit"} >
-              edit user
-            </Link>
+            <div className="input-group mr-2">
+              <Link to="/user/edit">
+                <input type="button" value="Edit" className="btn btn-primary" />
+              </Link>
+            </div>
           </div>
         )}
     </div>
-    </>
+    
   )
 }
 

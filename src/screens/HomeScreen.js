@@ -48,7 +48,7 @@ const HomeScreen = () => {
       if(key === 'category' && filters[key].length > 0){
         filiteredProducts = filiteredProducts.filter((product)=> product.category === filters[key])
       } else if(key === 'searchTerm' && filters[key].length > 0){
-        filiteredProducts = filiteredProducts.filter((product)=> product.title.includes(filters[key]))
+        filiteredProducts = filiteredProducts.filter((product)=> product.title.toLowerCase().includes(filters[key].toLowerCase()))
       }
     }
     if (sortConfig && sortConfig.length > 0) {
@@ -79,31 +79,33 @@ const HomeScreen = () => {
   return (
     <div className="homescreen">
       <h2 className="homescreen__title">Product Gallary</h2>
-      <div className="homescreen__category">
-        <span>Filter by category:</span> 
-          <select value={filters.category} onChange={(e) => setFilter({...filters,category:e.target.value})}>
-              {['',...categories].map((x) => (
+      <div className="homescreen__filter">
+        <div className="homescreen__category">
+            <select value={filters.category} onChange={(e) => setFilter({...filters,category:e.target.value})}>
+              <option value="">Filter by category</option>
+              {categories.map((x) => (
                 <option key={x} value={x}>
                   {x}
                 </option>
               ))}
+            </select>
+        </div>
+        <div className="homescreen__price">
+          <select value={sortConfig} onChange={(e)=>setSortConfig(e.target.value)}>
+            <option key="Sort by:" value = "">
+              {"Sort by Price"}
+            </option>
+            <option key="ascending" value = "ascending">
+              {"Price: Low to High"}
+            </option>
+            <option key="descending" value = "descending">
+              {"Price: High to Low"}
+            </option>
           </select>
-      </div>
-      <div className="homescreen__price">
-        <select value={sortConfig} onChange={(e)=>setSortConfig(e.target.value)}>
-          <option key="Sort by:" value = "">
-            {"Sort by Price"}
-          </option>
-          <option key="ascending" value = "ascending">
-            {"Price: Low to High"}
-          </option>
-          <option key="descending" value = "descending">
-            {"Price: High to Low"}
-          </option>
-        </select>
-      </div>
-      <div className="homescreen__search">
-        <input value = {filters.searchTerm} onChange = {e => setFilter({...filters,searchTerm:e.target.value})}type="text" placeholder="Search.."/>
+        </div>
+        <div className="homescreen__search">
+          <input value = {filters.searchTerm} onChange = {e => setFilter({...filters,searchTerm:e.target.value})}type="text" placeholder="Search.."/>
+        </div>
       </div>
       <div className="homescreen__products">
         {loading ? (
